@@ -1,8 +1,9 @@
-const allCategories = document.getElementsByTagName('ul');
-console.log('Number of categories:', allCategories.length);
+const allCate = document.querySelectorAll('.item');
+console.log('Number of categories:', allCate.length);
 
-const category1 = document.querySelector('h2');
-console.log('Category:',category1.textContent);
-
-const element = category1.length;
-console.log(element)
+const titles = document.querySelectorAll('h2');
+for(let cateName of titles){
+console.log('Category:',cateName.textContent);
+console.log('Elements:', cateName.nextSibling.nextSibling.children.length);
+// console.log(cateName.nextSibling.length)
+};
