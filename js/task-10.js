@@ -6,6 +6,7 @@ const create = document.querySelector('[data-create]');
 const inpNumb = document.getElementsByTagName('input')[0];
 const addNewDiv = document.querySelector('#boxes');
 const deleteDiv = document.querySelector('[data-destroy]');
+const data = [];
 let width = 30;
 let heigth = 30;
 function createBoxes() {
@@ -13,13 +14,18 @@ function createBoxes() {
     let w = (width += 10 + i);
     let h = (heigth += 10 + i);
     if (i != 0) {
-      addNewDiv.insertAdjacentHTML("afterbegin", createBox(w, h));
+      data.push(createBox(w, h))
     }
     else {
-      addNewDiv.insertAdjacentHTML("afterbegin", createBox(width, heigth))
+      data.push(createBox(width, heigth))
     };
   }
+  drawBoxes();
 };
+
+function drawBoxes() {
+  addNewDiv.insertAdjacentHTML("afterbegin", data.join(''));
+}
 
 function createBox(w, h) {
   return `<div style="width: ${w}px; height: ${h}px; background-color: ${getRandomHexColor()}"></div>`
