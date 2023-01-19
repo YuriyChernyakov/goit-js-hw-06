@@ -8,21 +8,10 @@ const ingredients = [
 ];
 
 const list = document.querySelector('#ingredients');
-const data = [];
 
-function createList() {
-  for (let i = 0; i < ingredients.length; i++) {
-    data.push(createLi(ingredients[i]))
-    }
-  newList();
-};
-
-createList();
-
-function createLi(text) {
-  return `<li class = "item">${text}</li>`
-}
-
-function newList() {
-  list.insertAdjacentHTML("afterbegin", data.join(''));
+for (let i = 0; i < ingredients.length; i += 1) {
+  const li = document.createElement('li');
+  li.innerHTML = ingredients[i];
+  li.classList.add('item');
+  list.append(li);
 }
